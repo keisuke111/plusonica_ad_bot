@@ -77,7 +77,7 @@ def create_message(response):
     image = snippet["thumbnails"]["maxres"]["url"]
 
     # メッセージ作成
-    json = {
+    context = {
         "attachments": [
             {
                 "pretext": "今日のおすすめ",
@@ -123,8 +123,8 @@ def create_message(response):
         ]
     }
 
-    print("MESSAGE:", json)
-    return post_slack(json)
+    print("MESSAGE:", context)
+    return post_slack(context)
 
 
 def post_slack(context):
@@ -133,16 +133,9 @@ def post_slack(context):
     # slackに投稿
     response = requests.post(WEBHOOK_URL, data)
     if response.status_code == 200:
-        print("ooo投稿完了ooo")
+        print("投稿完了")
     else:
-        print("xxx投稿失敗xxx")
-
-
-def lambda_handler(event, context):
-    try:
-        get_random_video(page_token="")
-    except HttpError as e:
-        print("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))
+        print("投稿失敗")
 
 
 if __name__ == "__main__":
