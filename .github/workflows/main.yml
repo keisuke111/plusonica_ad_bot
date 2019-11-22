@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: "10 4 * * *"
+    - cron: "*/5 * * * *"
 
 env:
   DEVELOPER_KEY: ${{ secrets.DEVELOPER_KEY }}
