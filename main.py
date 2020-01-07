@@ -3,7 +3,7 @@
 import os
 import sys
 
-sys.path.append(os.path.join(os.path.dirname(__file__), "packages"))
+sys.path.append("./packages")
 from oauth2client.tools import argparser
 from apiclient.errors import HttpError
 from apiclient.discovery import build
